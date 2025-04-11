@@ -18,15 +18,26 @@ class CategoryResource extends Resource
     protected static ?string $model = Category::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-group';
+    protected static ?string $modelLabel = 'Categorias de Produtos';
+    protected static ?string $pluralModelLabel = 'Categorias de Produtos';
+
+    // public static function getWidgets(): array
+    // {
+    //     return [
+    //         CategoryResource::getWidgets()
+    //     ];
+    // }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Nombre')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
+                    ->label('Descripción')
                     ->required()
                     ->maxLength(1000),
             ]);
@@ -37,9 +48,11 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Nombre')
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('description')
+                    ->label('Descripción')
                     ->sortable()
                     ->searchable(),
             ])

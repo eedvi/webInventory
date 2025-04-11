@@ -19,7 +19,8 @@ class MovementResource extends Resource
     protected static ?string $model = Movement::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-arrows-up-down';
-
+    protected static ?string $modelLabel = 'Movimientos';
+    protected static ?string $pluralModelLabel = 'Movimientos';
     public static function form(Form $form): Form
     {
         return $form

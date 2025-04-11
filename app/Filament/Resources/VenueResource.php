@@ -19,7 +19,7 @@ class VenueResource extends Resource
     protected static ?string $model = Venue::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-archive-box';
-
+    protected static ?string $modelLabel = 'Ubicaciones';
     public static function form(Form $form): Form
     {
         return $form
@@ -37,10 +37,6 @@ class VenueResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->sortable()
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nombre')
                     ->sortable()
