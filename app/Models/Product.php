@@ -32,7 +32,7 @@ class Product extends Model
     }
 
     public function providers() {
-        return $this->belongsToMany(Provider::class)
+        return $this->belongsToMany(Provider::class, 'product_providers')
             ->using(ProductProvider::class);
     }
 

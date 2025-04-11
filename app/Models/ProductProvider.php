@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class ProductProvider extends Model
+class ProductProvider extends Pivot
 {
-    protected $fillable = [
-        'product_id',
-        'provider_id'
-    ];
+
+        protected $table = 'product_providers';
+        public $incrementing = false;
+        protected $fillable = ['product_id', 'provider_id'];
     
-    // If you want timestamps on the pivot table
-    public $timestamps = true;
 }
