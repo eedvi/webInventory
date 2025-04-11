@@ -23,7 +23,30 @@ class ProviderResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')
+                    ->label('Nombre')
+                    ->required()
+                    ->maxLength(255),
+            Forms\Components\TextInput::make('contact')
+                    ->label('Contacto')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('email')
+                    ->label('Correo Electrónico')
+                    ->required()
+                    ->email()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('phone')
+                    ->label('Teléfono')
+                    ->prefix('+502')
+                    ->required()
+                    ->tel()
+                    ->maxLength(20),
+                Forms\Components\TextInput::make('address')
+                    ->label('Dirección')
+                    ->placeholder('Dirección del proveedor')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -31,7 +54,27 @@ class ProviderResource extends Resource
     {
         return $table
             ->columns([
-                //
+
+                Tables\Columns\TextColumn::make('name')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Nombre'),
+                Tables\Columns\TextColumn::make('contact')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Contacto'),
+                Tables\Columns\TextColumn::make('email')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Correo Electrónico'),
+                Tables\Columns\TextColumn::make('phone')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Teléfono'),
+                Tables\Columns\TextColumn::make('address')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Dirección'),
             ])
             ->filters([
                 //
