@@ -22,7 +22,7 @@ class MovementSeeder extends Seeder
               $usuario = User::create([
                   'name' => 'Admin',
                   'email' => 'admin@example.com',
-                  'password' => '123456789',
+                  'password' => bcrypt('123456789'),
               ]);
           }
           
